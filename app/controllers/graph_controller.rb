@@ -1,8 +1,11 @@
 class GraphController < ApplicationController
   def show
-    @data = [
-             "@fields.event:login",
-             "@fields.name:manoj"
+    @data = []
+  end
+    
+  def data
+    data = [
+             "@fields.event:test_taken"
             ].map do |q|
       entries = Tire.search('logstash'){
         query {
@@ -11,17 +14,18 @@ class GraphController < ApplicationController
         }
         filter(:range, {
                  "@timestamp" => {
-                   :from => 2.days.ago,
+                   :from => 1.minute.ago,
                    :to => Time.now
                  }})
         
         facet('count') {
-          date "@timestamp", :interval => "10m"}
+          date "@timestamp", :interval => "30s"}
       }.results.facets["count"]["entries"]
 
       times = entries.map { |e| e["time"]}
       counts = entries.map { |e| e["count"]}
       times.zip(counts)
     end
+    render :json => data
   end
 end

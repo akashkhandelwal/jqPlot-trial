@@ -1,6 +1,6 @@
 JqplotApp::Application.routes.draw do
   get "graph/show"
-
+  get "graph/data", :format => :json
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
