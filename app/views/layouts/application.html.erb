@@ -6,22 +6,6 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 	<!--[if IE]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
-	<script type="text/javascript">
-		$(document).ready(function(){
-		  var line1=[
-		             [1366711113000,4],
-		             [1366714703000,6.5],
-		             [1366797484000,5.7],
-		             [1366801078000,9],
-		             // [(new Date(1366368930000)),8.2]
-		            ];
-		  var plot1 = $.jqplot('chart1', [line1], {
-		    title:'Default Date Axis',
-		    axes:{xaxis:{renderer:$.jqplot.DateAxisRenderer}},
-		    series:[{lineWidth:4, markerOptions:{style:'square'}}]
-		  });
-		});
-	</script>
 </head>
 <body>
 

@@ -1,1 +1,5 @@
+<%= javascript_include_tag "custom" %>
+<script>
+  var data = <%=raw @data.to_json %>;
+</script>
 <div id="chart1" style="height:600px;width:100%; "></div>
