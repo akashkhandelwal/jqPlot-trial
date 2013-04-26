@@ -25,19 +25,39 @@ $(document).ready(function(){
 		  title:'Default Date Axis',
 		  axes:{
         xaxis:{
+          label: 'Time',
           renderer:$.jqplot.DateAxisRenderer
+        },
+        yaxis: {
+          label: 'Hits'
         }
       },
-		  series:[
-        {
-          lineWidth:4, 
+      highlighter: {
+        show: true,
+        sizeAdjust: 7.5
+      },
+      cursor:{
+        show: true,
+        zoom:true,
+        showTooltip:false
+      },  
+      legend: {
+            show: true,
+            placement: 'outsideGrid'
+      },
+      seriesDefaults:{
+        lineWidth:4, 
           markerOptions:{
-            style:'square'
+            style:'circle'
           },
           rendererOptions:{
             smooth: true
           }
-        }
+      }, 
+		  series:[
+        {label: "Time Taken"},
+        {label: "Sign up"},
+        {label: "Login"},
       ]
 	  });
     schedulePlot(1000);
